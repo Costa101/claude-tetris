@@ -38,17 +38,70 @@
             <li><kbd>↑</kbd> rotar</li>
             <li><kbd>↓</kbd> bajar</li>
             <li><kbd>Space</kbd> caída</li>
-            <li><kbd>P</kbd> pausa</li>
+            <li><kbd>P</kbd> / <kbd>Esc</kbd> pausa</li>
           </ul>
         </div>
       </aside>
     </div>
 
     <div id="overlay" class="overlay hidden">
-      <div class="overlay-box">
-        <p id="overlay-title">GAME OVER</p>
+      <div id="pause-screen" class="overlay-box hidden">
+        <p class="overlay-title">PAUSA</p>
+        <div class="menu-list">
+          <button type="button" id="resume-btn" class="menu-btn">Reanudar</button>
+          <button type="button" id="pause-restart-btn" class="menu-btn">Reiniciar</button>
+          <button type="button" id="controls-btn" class="menu-btn">Ver controles</button>
+        </div>
+        <div class="setting-row">
+          <span class="label">NIVEL INICIAL</span>
+          <div class="stepper">
+            <button type="button" id="level-dec" class="stepper-btn">−</button>
+            <span id="start-level-value" class="stepper-value">1</span>
+            <button type="button" id="level-inc" class="stepper-btn">+</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <span class="label">TEMA</span>
+          <div class="stepper">
+            <button type="button" id="theme-prev" class="stepper-btn">‹</button>
+            <span id="theme-value" class="stepper-value">Retro</span>
+            <button type="button" id="theme-next" class="stepper-btn">›</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="controls-screen" class="overlay-box hidden">
+        <p class="overlay-title">CONTROLES</p>
+        <ul class="controls-list">
+          <li><kbd>←</kbd><kbd>→</kbd> mover</li>
+          <li><kbd>↑</kbd> rotar</li>
+          <li><kbd>↓</kbd> bajar</li>
+          <li><kbd>Space</kbd> caída</li>
+          <li><kbd>P</kbd> / <kbd>Esc</kbd> pausa</li>
+        </ul>
+        <button type="button" id="controls-back-btn" class="menu-btn">Volver</button>
+      </div>
+
+      <div id="gameover-screen" class="overlay-box hidden">
+        <p class="overlay-title">GAME OVER</p>
         <p id="overlay-score"></p>
-        <button id="restart-btn">Reiniciar</button>
+        <p id="overlay-stats" class="stats-line"></p>
+        <div id="name-entry" class="name-entry hidden">
+          <input id="name-input" maxlength="10" placeholder="Tu nombre" autocomplete="off" />
+          <button type="button" id="save-score-btn" class="menu-btn">Guardar</button>
+        </div>
+        <ol id="gameover-highscores" class="highscore-list"></ol>
+        <button type="button" id="restart-btn" class="menu-btn">Reiniciar</button>
+      </div>
+    </div>
+
+    <div id="start-screen" class="overlay">
+      <div class="overlay-box">
+        <p class="overlay-title">RECORDS</p>
+        <ol id="start-highscores" class="highscore-list"></ol>
+        <p id="start-stats" class="stats-line"></p>
+        <button type="button" id="play-btn" class="menu-btn">Jugar</button>
+        <button type="button" id="reset-scores-btn" class="menu-btn secondary">Resetear records</button>
       </div>
     </div>
   </div>
